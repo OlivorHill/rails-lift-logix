@@ -1,0 +1,14 @@
+<h1>Design Your Workout Program</h1>
+
+<%= simple_form_for [@split, @workout] do |form| %>
+
+  <div class ="Description">
+    <%= form.input :date, as: :date, html5: true, label: "Workout Date ", required: true %>
+    </div>
+
+
+<div class="actions">
+  <%= form.submit "Create Workout Program" %>
+  </div>
+
+<% end %>
