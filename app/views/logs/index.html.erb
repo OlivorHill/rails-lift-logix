@@ -1,0 +1,29 @@
+<h1>Current Workout</h1>
+<h3><%= @workout.date %></h3>
+<h3><%= @split.category %></h3>
+
+<% @split_exercises.each do |split_exercise| %>
+  <div class='exercise-card'>
+    <div class="exercise-image">
+      <%= image_tag split_exercise.exercise.image_url, alt: split_exercise.exercise.name %>
+    </div>
+    <div class="exercise-info">
+      <h5 class="exercise-name"><%= split_exercise.exercise.name %></h5>
+      <% completed_logs = @workout.logs.where(split_exercise: split_exercise) %>
+      <% if completed_logs %>
+        <% i = 0 %>
+        <% completed_logs.each do |log| %>
+          <% i += 1 %>
+          <p class='text-center' style='color:black'><strong>Set <%= i %>:</strong>      <%= log.weight %>kg       <%= log.repetitions %> reps       </p>
+        <% end %>
+      <% end %>
+      <%= simple_form_for [@workout, split_exercise, @log] do |f| %>
+        <div class="d-flex justify-content-around">
+          <%= f.input :weight, placeholder: "kg", label: false %>
+          <%= f.input :repetitions, placeholder: "reps", label: false %>
+          <%= f.submit '+', class:'p-0' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

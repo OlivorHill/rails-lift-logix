@@ -1,8 +1,6 @@
 class WorkoutsController < ApplicationController
-
   def index
-    @split = Split.find(params[:split_id])
-    @programme = @split.programme
+    @programme = Programme.find(params[:programme_id])
     @splits = @programme.splits
     @workout = Workout.new
   end
@@ -13,7 +11,7 @@ class WorkoutsController < ApplicationController
     @workout.date = Date.today
     @workout.done = false
     if @workout.save
-      redirect_to new_split_log_path(@workout.split)
+      redirect_to workout_logs_path(@workout)
     else
       render 'index', status: :unprocessable_entity
     end

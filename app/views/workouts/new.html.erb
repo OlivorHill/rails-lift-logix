@@ -1,0 +1,33 @@
+<%# Darcy version copy from Mai %>
+
+<h1>Current Workout</h1>
+
+<h3><%= @split.category %></h3>
+
+<% @split_exercises.each do |split_exercise| %>
+  <div class="exercise" data-controller="sets">
+   <%= split_exercise.exercise.name %>
+   <% if @workout.logs %>
+    <% @workout.logs.where(split_exercise: split_exercise).each do |set|%>
+      <div class="set">
+      <div class="d-flex justify-content-around">
+        <div><%= log.weight %></div>
+        <div><%= log.repetitions %></div>
+      </div>
+      </div>
+    <% end %>
+    <% end %>
+
+
+   <div data-sets-target="form">
+    <%= simple_form_for [split_exercise, @log] do |f| %>
+     <div class="d-flex justify-content-around">
+      <%=f.input :weight, placeholder: "Weights(Kg)", label: false %>
+      <%=f.input :repetitions, placeholder: "Repetitions", label: false  %>
+     </div>
+     <i class="fa-solid fa-plus" data-action="click->sets#add"></i>
+    <% end %>
+    </div>
+
+  </div>
+  <% end %>

@@ -11,15 +11,23 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  resources :programmes, only: %i[ new create show ] do
+  resources :programmes, only: %i[ new create show destroy] do
     resources :splits, only: %i[ index ]
+    resources :workouts, only: %i[ index ]
   end
 
   resources :splits, only: :show do
-    resources :exercises, only: []
+    # resources :exercises, only: []
     resources :split_exercises, only: [:create]
-    resources :workouts, only: [:index, :create]
-    resources :logs, only: %i[new create]
+    resources :workouts, only: :create
+  end
+
+  resources :workouts, only: [] do
+    resources :logs, only: :index
+    resources :split_exercises, only: [] do
+      resources :logs, only: :create
+    end
+    # now sure about the new maybe can be deleted
   end
 
   resources :split_exercises, only: [:destroy]
