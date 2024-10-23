@@ -1,0 +1,214 @@
+#progressbar {
+  margin: 20px;
+  width: 100%;
+  max-width: 400px; // limit size on large screen
+  height: 8px;
+  position: relative;
+}
+
+body {
+  color: #333; // text color for all
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin: 50px auto 20px;
+}
+
+// Programme and exercise container (same specs)
+.programmes-container,
+.exercises-container,
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+// Programme Card stuff & Exercise Card
+.programme-card,
+.exercise-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 15px;
+  width: 329.508px;
+  max-width: 400px; // Max width for larger screens
+  transition: transform 0.2s ease;
+}
+
+.programme-card:hover,
+.exercise-card:hover {
+  transform: scale(1.02);
+}
+
+.programme-card{
+  display: flex;
+  flex-direction: column;
+  width: 390px !important;
+  p{
+    font-size: small;
+  }
+}
+
+
+.programme-name {
+  color: $primary-accent;
+  font-weight: bold;
+}
+
+// Progress text attrivutes
+.progress-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+
+.exercise-logs {
+  list-style-type: none; // take away bullet points
+  padding: 0; // take away padding (both to keep text compact)
+  margin: 0; // take away margin
+}
+
+.exercise-logs li {
+  font-size: 14px;
+  color: #666;
+}
+
+// Responsive stuff
+@media (max-width: 768px) {
+  #progressbar {
+    width: 100%; // entire width for mobile view
+  }
+
+  // Card adjustments for mobile view
+  .programme-card,
+  .exercise-card {
+    width: 329.508px;
+    padding: 10px; // smaller padding space for mobile
+  }
+}
+
+.logout-btn {
+  display: inline-block;
+  background-color: rgba(255, 224, 224, 0.199);
+  color: white;
+  padding: 8px 20px;
+  border: 1px solid rgb(255, 92, 92);
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+  margin-top: 50px;
+}
+
+.logout-btn:hover {
+  background-color: darkred;
+}
+
+.logout-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.new-programme-btn {
+  display: inline-block;
+  background-color: rgba(226, 255, 224, 0.199);
+  color: white;
+  padding: 8px 20px;
+  border: 1px solid rgb(92, 255, 179);
+  border-radius: 8px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+  margin-top: 20px;
+ // THE TEXT DECORATION NONE WAS NOT WORKING FOR THE LINK ON THIS BUTTON
+ // SO I HAVE REMOVED THE TEXT DECORATION FOR ALL LINKS IN THE BELOW
+ // ON THE ANCHOR TAG CSS
+}
+
+.new-programme-btn a {
+  text-decoration: none !important;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+// Account header
+
+.account-header {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 80%;
+  // max-width: 400px;
+}
+
+.account-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid $primary-accent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // add margin here
+}
+
+.acc-header-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+
+  p {
+    color: white;
+    margin-bottom: 0px;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  h6 {
+    color: $primary-accent;
+    margin-bottom: 0px;
+    font-size: 20px;
+  }
+}
+
+.account-title {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin: 50px auto 35px;
+}
+
+
+.chart-card {
+  width: 1200px !important;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon{
+  background-color: rgba(0,0,0,0.5);
+  padding: 2px;
+}
