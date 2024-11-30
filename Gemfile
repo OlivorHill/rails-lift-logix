@@ -70,4 +70,4 @@ group :test do
 end
 
 gem 'chartkick'
-gem "simple_calendar", "~> 2.4"
+gem "simple_calendar", "~> 3.0"
