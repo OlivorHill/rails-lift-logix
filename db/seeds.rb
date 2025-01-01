@@ -349,3 +349,4 @@ Log.create!(workout: workoutf_9, split_exercise: split2_squat, weight: 60, repet
 
 
 puts "done"
+puts "Dummy Account Email: abc@abc.com Password: 123456"
